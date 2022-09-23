@@ -1,0 +1,16 @@
+.navbar {
+  width: 100vw;
+}
+
+.arrow {
+  display: flex;
+  font-size: 20px;
+  color: white;
+  height: min-content;
+}
+
+.login { 
+  position: absolute;
+  right: 0;
+  margin-right: 30px;
+}
