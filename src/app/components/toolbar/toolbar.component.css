@@ -1,0 +1,25 @@
+.toolbar {
+  height: 100%;
+  display: flex;
+  position: relative;
+  flex-direction: column;
+  list-style: none;
+  background-color: #AAB7B8;
+}
+
+.toolbar-item {
+  color: #fff;
+  font-size: 19px;
+  margin: 15px 10px;
+  font-weight: bolder;
+}
+
+.first {
+  margin-top: 30px;
+}
+
+.last {
+  bottom: 0;
+  margin-bottom: 30px;
+  position: absolute;
+}
