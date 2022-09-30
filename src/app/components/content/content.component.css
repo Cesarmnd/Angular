@@ -1,13 +1,25 @@
-.square {
-  height: 150px;
+.student-container {
   color: #fff;
-  position: relative;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  background-color: #734;
+}
+
+.element  {
+  margin: 20px;
+}
+
+.title  {
+  font-size: 30px;
+  margin: 20px;
+  color: #fff;
 }
 
 .text {
-  font-size: 35px;
+  font-size: 20px;
+}
+
+.aprobado {
+  color: rgb(0, 255, 17);
+}
+
+.desaprobado {
+  color: rgb(255, 0, 0);
 }

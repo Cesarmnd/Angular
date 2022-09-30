@@ -1,35 +1,12 @@
-<div class="container">
-  <div class="row">
-    <div class="square col m-4">
-      <p class="text">Curso</p>
-    </div>
-    <div class="square col m-4">
-      <p class="text">Curso</p>
-    </div>
-    <div class="square col m-4">
-      <p class="text">Curso</p>
-    </div>
-  </div>
-  <div class="row">
-    <div class="square col m-4">
-      <p class="text">Curso</p>
-    </div>
-    <div class="square col m-4">
-      <p class="text">Curso</p>
-    </div>
-    <div class="square col m-4">
-      <p class="text">Curso</p>
-    </div>
-  </div>
-  <div class="row">
-    <div class="square col m-4">
-      <p class="text">Curso</p>
-    </div>
-    <div class="square col m-4">
-      <p class="text">Curso</p>
-    </div>
-    <div class="square col m-4">
-      <p class="text">Curso</p>
-    </div>
-  </div>
-</div>
+<h1 class="title">Lista de alumnos</h1>
+
+<ol class="student-container">
+    <li *ngFor="let user of studentsList" class="element">
+      Nombre: {{user.name | titlecase}}<br>
+      Apellido: {{user.lastname | titlecase}}<br>
+      Correo: {{user.email}}<br>
+      Edad: {{user.age}}<br>
+      <span [ngClass]="user.grade < 13 ? 'desaprobado' : 'aprobado'">Promedio: {{user.grade}}</span>
+    </li>
+</ol>
+
