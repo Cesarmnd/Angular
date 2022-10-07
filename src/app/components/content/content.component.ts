@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit} from '@angular/core';
 import { Student } from 'src/app/models/student';
 
 @Component({
@@ -7,6 +7,7 @@ import { Student } from 'src/app/models/student';
   styleUrls: ['./content.component.css']
 })
 export class ContentComponent implements OnInit {
+  
   studentsList: Array<Student> =[
     {name:'cesar', lastname: 'figueras', email: 'vefidaucekau-4691@yopmail.com',age:26, grade: 7},
     {name:'rebecca', lastname: 'sevillano', email: 'kauxappammoijoi-7872@yopmail.com',age:27, grade: 16},
@@ -22,9 +23,14 @@ export class ContentComponent implements OnInit {
     {name:'luz', lastname: 'ye', email: 'capriritebe-7387@yopmail.com',age:21, grade: 19}
   ]
 
-  constructor() { }
-
-  ngOnInit(): void {
+  constructor() { 
+ 
   }
 
+  ngOnInit(): void {
+
+  }
+
+  handleEvent() {
+  }
 }
