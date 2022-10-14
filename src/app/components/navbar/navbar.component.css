@@ -1,5 +1,5 @@
 .navbar {
-  width: 100vw;
+  width: 100%;
 }
 
 .arrow {
@@ -14,3 +14,4 @@
   right: 0;
   margin-right: 30px;
 }
+

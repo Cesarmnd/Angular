@@ -1,7 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { MatTableDataSource } from '@angular/material/table';
 import { Course } from 'src/app/models/course';
-import { Student } from 'src/app/models/student';
 
 @Component({
   selector: 'app-chart',
@@ -9,6 +7,7 @@ import { Student } from 'src/app/models/student';
   styleUrls: ['./chart.component.css']
 })
 export class ChartComponent implements OnInit {
+  filter: string = "";
 
   courses: Course[] = [
     {
@@ -49,7 +48,7 @@ export class ChartComponent implements OnInit {
       end: new Date(20022, 12, 16),
       ongoing: true,
       enrroll: false,
-      img: 'https://www.pngfind.com/pngs/m/685-6854994_react-logo-no-background-hd-png-download.png'
+      img: 'https://cdn1.iconfinder.com/data/icons/programing-development-8/24/react_logo-512.png'
     },
   ]
 
@@ -58,4 +57,15 @@ export class ChartComponent implements OnInit {
   ngOnInit(): void {
   }
 
+  edit() {
+
+  }
+
+  inscribe() {
+
+  }
+
+  remove() {
+    
+  }
 }

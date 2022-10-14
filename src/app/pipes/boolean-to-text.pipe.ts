@@ -10,6 +10,3 @@ export class BooleanToTextPipe implements PipeTransform {
   }
 
 }
-
-
-// min 43

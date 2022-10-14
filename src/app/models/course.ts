@@ -9,4 +9,3 @@ export interface Course {
   img: string;
 }
 
-//  | date 'dd/mm/yyyy'
