@@ -1,0 +1,68 @@
+<h1>Lista de alumnos</h1>
+<div class="row">
+  <mat-form-field class="col-md-3">
+    <mat-label>Buscar alumno:</mat-label>
+    <input type="text" matInput (keyup)="nameFilter()">
+  </mat-form-field>
+  <mat-form-field class="col-md-3">
+    <mat-label>Filtrar por estado:</mat-label>
+    <input type="text" matInput (keyup)="statusFilter()">
+  </mat-form-field>
+</div>
+
+<div class="row">
+  <table mat-table [dataSource]="dataSource" class="col-md-12">
+
+    <!-- Nombre -->
+    <ng-container matColumnDef="name">
+      <th mat-header-cell *matHeaderCellDef>Nombre</th>
+      <td mat-cell *matCellDef="let obj"> {{ obj.name | titlecase }} </td>
+    </ng-container>
+
+    <!-- Apellido -->
+    <ng-container matColumnDef="lastname">
+      <th mat-header-cell *matHeaderCellDef>Apellido</th>
+      <td mat-cell *matCellDef="let obj"> {{ obj.lastname | titlecase }} </td>
+    </ng-container>
+
+    <!-- Correo -->
+    <ng-container matColumnDef="email">
+      <th mat-header-cell *matHeaderCellDef>Correo</th>
+      <td mat-cell *matCellDef="let obj"> {{ obj.email }} </td>
+    </ng-container>
+
+    <!-- Edad -->
+    <ng-container matColumnDef="age">
+      <th mat-header-cell *matHeaderCellDef>Edad</th>
+      <td mat-cell *matCellDef="let obj"> {{ obj.age }} </td>
+    </ng-container>
+
+    <!-- Promedio -->
+    <ng-container matColumnDef="grade">
+      <th mat-header-cell *matHeaderCellDef>Promedio</th>
+      <td mat-cell *matCellDef="let obj"> {{ obj.grade }} </td>
+    </ng-container>
+
+    <!-- Estado -->
+    <ng-container matColumnDef="state">
+      <th mat-header-cell *matHeaderCellDef>Estado</th>
+      <td mat-cell *matCellDef="let obj"> Desaprobado </td>
+    </ng-container>
+
+      <!-- Acciones -->
+  <ng-container matColumnDef="action">
+    <th mat-header-cell *matHeaderCellDef="">Acciones</th>
+    <td mat-cell *matCellDef>
+      <button mat-icon-button> 
+        <mat-icon>edit</mat-icon>
+      </button>
+      <button mat-icon-button>
+        <mat-icon>delete</mat-icon>
+      </button>
+    </td>
+
+    <tr mat-header-row *matHeaderRowDef="columns"></tr>
+    <tr mat-row *matRowDef="let row; columns: columns"></tr>
+  </ng-container>
+  </table>
+</div>

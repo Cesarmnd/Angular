@@ -7,6 +7,16 @@ import { ToolbarComponent } from './components/toolbar/toolbar.component';
 import { ContentComponent } from './components/content/content.component';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { FormsComponent } from './components/forms/forms.component';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { SamplesComponent } from './components/samples/samples.component';
+import { MaterialModule } from './material.module';
+import { TablaComponent } from './components/tabla/tabla.component';
+import { DialogComponent } from './components/dialog/dialog.component';
+import { ChartComponent } from './components/chart/chart.component';
+import { ListComponent } from './components/list/list.component';
+import { BooleanToTextPipe } from './pipes/boolean-to-text.pipe';
+import { StudentStateDirective } from './directives/student-state.directive';
+
 
 @NgModule({
   declarations: [
@@ -15,11 +25,20 @@ import { FormsComponent } from './components/forms/forms.component';
     ToolbarComponent,
     ContentComponent,
     FormsComponent,
+    SamplesComponent,
+    TablaComponent,
+    DialogComponent,
+    ChartComponent,
+    ListComponent,
+    BooleanToTextPipe,
+    StudentStateDirective
   ],
   imports: [
     BrowserModule,
     FormsModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    BrowserAnimationsModule,
+    MaterialModule
   ],
   providers: [],
   bootstrap: [AppComponent]

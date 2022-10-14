@@ -1,11 +1,3 @@
-<h1 class="title">Lista de alumnos</h1>
+<app-chart></app-chart>
 
-<ol class="student-container">
-    <li *ngFor="let user of studentsList" class="element">
-      Nombre: {{user.name | titlecase}}<br>
-      Apellido: {{user.lastname | titlecase}}<br>
-      Correo: {{user.email}}<br>
-      Edad: {{user.age}}<br>
-      <span [ngClass]="user.grade < 13 ? 'desaprobado' : 'aprobado'">Promedio: {{user.grade}}</span>
-    </li>
-</ol>
+<app-list></app-list>

@@ -4,4 +4,4 @@ export interface Student {
   email: string;
   age: number;
   grade: number;
-}
+} 
