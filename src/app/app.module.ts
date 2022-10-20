@@ -15,6 +15,7 @@ import { StudentStateDirective } from './directives/student-state.directive';
 import { CourseFilterPipe } from './pipes/course-filter.pipe';
 import { TextSizeDirective } from './directives/text-size.directive';
 import { UserRegistrationComponent } from './components/user-registration/user-registration.component';
+import { CourseRegistrationComponent } from './components/course-registration/course-registration.component';
 
 
 @NgModule({
@@ -29,7 +30,8 @@ import { UserRegistrationComponent } from './components/user-registration/user-r
     StudentStateDirective,
     CourseFilterPipe,
     TextSizeDirective,
-    UserRegistrationComponent
+    UserRegistrationComponent,
+    CourseRegistrationComponent
   ],
   imports: [
     BrowserModule,
