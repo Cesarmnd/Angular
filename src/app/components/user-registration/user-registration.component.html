@@ -1,0 +1,56 @@
+<h1 appTextSize="20px" class="title">Registrar usuario</h1>
+  <form class="form col-md-4" [formGroup]="userForm" (ngSubmit)="addUser()" >
+    <mat-form-field class="form-input col-10" appearance="legacy" color="accent">
+      <mat-label>Nombre</mat-label>
+      <input type="text" formControlName="name" matInput placeholder="Ingrese sus nombres.">
+      <mat-error class="error" *ngIf="userForm.get('name')?.touched && userForm.get('name')?.errors?.['required']">Este campo es obligatorio</mat-error>
+    </mat-form-field>
+  
+    <mat-form-field class="form-input col-10" appearance="legacy" color="accent">
+      <mat-label>Apellidos</mat-label>
+      <input type="text" formControlName="lastName" matInput placeholder="Ingrese sus apellidos.">
+      <mat-error class="error" *ngIf="userForm.get('lastName')?.touched && userForm.get('lastName')?.errors?.['required']">Este campo es obligatorio.</mat-error>
+    </mat-form-field>
+  
+    <mat-form-field class="form-input col-10" appearance="legacy" color="accent">
+      <mat-label>E-mail</mat-label>
+      <input type="email" formControlName="email" matInput placeholder="ejemplo@correo.com">
+      <mat-icon matSuffix>mail</mat-icon>
+      <mat-error class="error" *ngIf="userForm.get('email')?.touched && userForm.get('email')?.errors?.['required']">Este campo es obligatorio.</mat-error>
+      <mat-error class="error" *ngIf="userForm.get('email')?.touched && userForm.get('email')?.errors?.['pattern']">Formato de correo inválido.</mat-error>
+    </mat-form-field>
+  
+    <mat-form-field class="form-input col-10" appearance="legacy" color="accent">
+      <mat-label>Número de contacto:</mat-label>
+      <span matPrefix>+51 &nbsp;</span>
+      <input type="tel" formControlName="phone" matInput placeholder="555-555-555">
+      <mat-icon matSuffix>phone</mat-icon>
+      <mat-error class="error" *ngIf="userForm.get('phone')?.touched && userForm.get('phone')?.errors?.['required']">Este campo es obligatorio.</mat-error>
+    </mat-form-field>
+    
+    <mat-form-field class="form-input col-10" appearance="legacy" color="accent">
+      <mat-label>Contraseña:</mat-label>
+      <input type="password" [type]="hide ? 'password' : 'text'" formControlName="password" matInput placeholder="Ingrese su contraseña.">
+      <button mat-icon-button matSuffix (click)="hide = !hide" [attr.aria-label]="'Hide password'" [attr.aria-pressed]="hide">
+        <mat-icon>{{hide ? 'visibility_off' : 'visibility'}}</mat-icon>
+      </button>
+      <mat-error class="error" *ngIf="userForm.get('password')?.touched && userForm.get('password')?.errors?.['required']">Este campo es obligatorio.</mat-error>
+      <mat-error class="error" *ngIf="userForm.get('password')?.touched && userForm.get('password')?.errors?.['minlength']">Su contraseña debe tener mínimo 8 caracteres.</mat-error>
+      <mat-error class="error" *ngIf="userForm.get('password')?.touched && userForm.get('password')?.errors?.['pattern']">Su contraseña debe tener al menos una mayúscula.</mat-error>
+    </mat-form-field>
+    
+    <mat-form-field class="form-input col-10" appearance="legacy" color="accent">
+      <mat-label>Confirmar contraseña:</mat-label>
+      <input type="password" formControlName="validation" (change)="compare()" matInput placeholder="Repita su contraseña.">
+      <mat-error class="error" *ngIf="compare()">Las contraseñas deben ser iguales.</mat-error>
+    </mat-form-field>
+  
+    <mat-checkbox class="form-input checkbox" formControlName="admin" labelPosition="before">Admin</mat-checkbox>
+    <div>
+      <button class="form-btn" mat-flat-button color="accent" type="submit" >
+        Registrar
+      </button>
+    </div>
+  </form>
+
+  

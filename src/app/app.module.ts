@@ -14,6 +14,7 @@ import { BooleanToTextPipe } from './pipes/boolean-to-text.pipe';
 import { StudentStateDirective } from './directives/student-state.directive';
 import { CourseFilterPipe } from './pipes/course-filter.pipe';
 import { TextSizeDirective } from './directives/text-size.directive';
+import { UserRegistrationComponent } from './components/user-registration/user-registration.component';
 
 
 @NgModule({
@@ -27,7 +28,8 @@ import { TextSizeDirective } from './directives/text-size.directive';
     BooleanToTextPipe,
     StudentStateDirective,
     CourseFilterPipe,
-    TextSizeDirective
+    TextSizeDirective,
+    UserRegistrationComponent
   ],
   imports: [
     BrowserModule,
