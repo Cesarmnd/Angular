@@ -10,3 +10,9 @@
 input {
   color: #fff;
 }
+
+.promise-sample {
+  background-color: #424242;
+  color: #fff;
+  font-size: 18px;
+}

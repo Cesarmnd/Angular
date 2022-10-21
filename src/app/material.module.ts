@@ -39,7 +39,7 @@ import { MatNativeDateModule } from "@angular/material/core";
     MatNativeDateModule
   ],
   providers: [  
-    MatDatepickerModule,  
+    MatDatepickerModule
   ]
 }) 
 

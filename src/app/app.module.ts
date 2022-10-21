@@ -16,6 +16,7 @@ import { CourseFilterPipe } from './pipes/course-filter.pipe';
 import { TextSizeDirective } from './directives/text-size.directive';
 import { UserRegistrationComponent } from './components/user-registration/user-registration.component';
 import { CourseRegistrationComponent } from './components/course-registration/course-registration.component';
+import { config, token } from './config';
 
 
 @NgModule({
@@ -40,7 +41,9 @@ import { CourseRegistrationComponent } from './components/course-registration/co
     BrowserAnimationsModule,
     MaterialModule
   ],
-  providers: [],
+  providers: [ 
+    {provide: token, useValue: config}
+],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
