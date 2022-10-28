@@ -1,8 +1,11 @@
-<div class="container m-0 p-0">
-  <app-navbar class="row col-md-12 m-0 p-0"></app-navbar>
-  <div class="row col-md-12 m-0 p-0">
-    <app-toolbar class="col-md-2 p-0"></app-toolbar>
-    <app-content class="col-md-10 content-conatainer"></app-content>
-  </div>
-</div>
+<mat-toolbar color="primary">
+  <h1>Título de referencia</h1>
+  <a mat-button routerLink="">Inicio</a>
+  <a mat-button routerLink="courses/list">Cursos</a>
+  <a mat-button routerLink="courses/create">Registrar Curso</a>
+  <a mat-button routerLink="students/list">Alumnos</a>
+  <a mat-button routerLink="students/create">Registrar Alumnos</a>
+</mat-toolbar>
+<router-outlet></router-outlet>
+
 

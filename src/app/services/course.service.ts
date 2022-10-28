@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import { BehaviorSubject, Observable, of, Subject } from 'rxjs';
+import { BehaviorSubject, map, Observable, of, Subject } from 'rxjs';
 import { Course } from '../models/course';
 
 @Injectable({
@@ -116,18 +116,30 @@ export class CourseService {
 
   constructor() { 
     this.subjectCourses = new BehaviorSubject<Course[]>(this.courses);
-    
   }
   
-  getCourse() {
+  getCourses() {
     this.subjectCourses.next( this.courses )
     return this.subjectCourses.asObservable()
+  }
+
+  getCourse( id:number ): Observable<Course[]> {
+    return this.getCourses().pipe(
+      map( (courses: Course[]) => courses.filter((course: Course) => course.id === id))
+    )
+
   }
 
   addCourse( course: Course ) {
     this.courses.push(course);
     this.subjectCourses.next( this.courses );
   }
+
+  editCourse(course: Course) {
+
+  }
+
+  deleteCourse(id: number) {}
 }
 
 

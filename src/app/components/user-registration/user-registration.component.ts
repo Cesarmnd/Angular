@@ -1,5 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormControl, FormGroup, Validators } from '@angular/forms';
+import { Student } from 'src/app/models/student';
+import { StudentService } from 'src/app/services/student.service';
 import Swal from 'sweetalert2'
 
 @Component({
@@ -13,7 +15,10 @@ export class UserRegistrationComponent implements OnInit {
   userForm: FormGroup; 
   validate!: boolean; 
 
-  constructor( private fb: FormBuilder ) { 
+  constructor( 
+    private fb: FormBuilder,
+    private studentService: StudentService
+    ) { 
     this.userForm = fb.group({
       name: new FormControl('', [Validators.required]),
       lastName: new FormControl('', [Validators.required]),

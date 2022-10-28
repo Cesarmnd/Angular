@@ -16,7 +16,7 @@ export class ChartComponent implements OnInit, OnDestroy {
   constructor(
     private courseService: CourseService
   ) {    
-    this.subscription =  courseService.getCourse()
+    this.subscription =  courseService.getCourses()
     .subscribe({
       next: ( obj: Course[] ) => {
         this.courses = obj;
@@ -71,7 +71,7 @@ export class ChartComponent implements OnInit, OnDestroy {
       if (obj.length > 0 && this.filter != '') {
         this.courses = obj;
       } else {
-        this.courseService.getCourse();
+        this.courseService.getCourses();
       }
     });
   }

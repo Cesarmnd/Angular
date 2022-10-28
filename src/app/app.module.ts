@@ -17,6 +17,9 @@ import { TextSizeDirective } from './directives/text-size.directive';
 import { UserRegistrationComponent } from './components/user-registration/user-registration.component';
 import { CourseRegistrationComponent } from './components/course-registration/course-registration.component';
 import { config, token } from './config';
+import { AppRoutingModule } from './app.routing.module';
+import { HomeComponent } from './components/home/home.component';
+import { NotFoundComponent } from './components/not-found/not-found.component';
 
 
 @NgModule({
@@ -32,14 +35,17 @@ import { config, token } from './config';
     CourseFilterPipe,
     TextSizeDirective,
     UserRegistrationComponent,
-    CourseRegistrationComponent
+    CourseRegistrationComponent,
+    HomeComponent,
+    NotFoundComponent
   ],
   imports: [
     BrowserModule,
     FormsModule,
     ReactiveFormsModule,
     BrowserAnimationsModule,
-    MaterialModule
+    MaterialModule,
+    AppRoutingModule
   ],
   providers: [ 
     {provide: token, useValue: config}
