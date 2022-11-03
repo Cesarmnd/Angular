@@ -1,10 +1,8 @@
 import { Injectable } from '@angular/core';
-import { Observable } from 'rxjs';
-import { Student } from '../models/student';
+import { BehaviorSubject, map, Observable } from 'rxjs';
+import { Student } from '../../models/student';
 
-@Injectable({
-  providedIn: 'root'
-})
+@Injectable()
 export class StudentService {
 
   private students: Student[] = [
@@ -103,21 +101,15 @@ export class StudentService {
      }
   ]
 
+  subjectStudents: BehaviorSubject<Student[]>;
   
   constructor() { 
-
+    this.subjectStudents = new BehaviorSubject<Student[]>(this.students);
   }
 
-  getStudents(): Promise< Student[] | any > {
-    return new Promise((resolve, reject) => {
-      if(this.students.length > 0) {
-        resolve(this.students);
-      } else {
-        reject({
-          id: 1,
-          alert: 'No hay alumnos registrados.'
-        })
-      }
-    })
+  getStudents() {
+    this.subjectStudents. next( this.students )
+    return this.subjectStudents.asObservable()
   }
 }
+ |

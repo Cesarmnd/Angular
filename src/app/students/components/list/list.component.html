@@ -1,0 +1,67 @@
+<h1 appTextSize="20px" class="title">Lista de alumnos</h1>
+<div class="row">
+  <mat-form-field class="col-md-4" appearance="fill" color="accent">
+    <mat-label>Buscar alumno:</mat-label>
+    <input type="text" matInput>
+  </mat-form-field>
+</div>
+
+<div class="row">
+  <table mat-table [dataSource]="dataSource" matSort class="col-md-11 mb-3 mx-3">
+
+    <!-- Nombre -->
+    <ng-container matColumnDef="name">
+      <th appTextSize="20px" class="subtitle" mat-header-cell *matHeaderCellDef>Nombre</th>
+      <td mat-cell *matCellDef="let obj"> {{ obj.name | titlecase }} </td>
+    </ng-container>
+
+    <!-- Apellido -->
+    <ng-container matColumnDef="lastname">
+      <th appTextSize="20px" class="subtitle" mat-header-cell *matHeaderCellDef>Apellido</th>
+      <td mat-cell *matCellDef="let obj"> {{ obj.lastname | titlecase }} </td>
+    </ng-container>
+
+    <!-- Correo -->
+    <ng-container matColumnDef="email">
+      <th appTextSize="20px" class="subtitle" mat-header-cell *matHeaderCellDef>Correo</th>
+      <td mat-cell *matCellDef="let obj"> {{ obj.email }} </td>
+    </ng-container>
+
+    <!-- Edad -->
+    <ng-container matColumnDef="age">
+      <th appTextSize="20px" class="subtitle" mat-header-cell *matHeaderCellDef>Edad</th>
+      <td mat-cell *matCellDef="let obj"> {{ obj.age }} </td>
+    </ng-container>
+
+    <!-- Promedio -->
+    <ng-container matColumnDef="grade">
+      <th appTextSize="20px" class="subtitle" mat-header-cell *matHeaderCellDef>Promedio</th>
+      <td mat-cell *matCellDef="let obj"> {{ obj.grade }} </td>
+    </ng-container>
+
+    <!-- Estado -->
+    <ng-container matColumnDef="state">
+      <th appTextSize="20px" class="subtitle" mat-header-cell *matHeaderCellDef>Estado</th>
+      <!-- <td mat-cell *matCellDef="let obj" [appStudentState]="obj.status"> {{ obj.status | booleanToText: 'Aprobado' : 'Desaprobado'}} </td> -->
+    </ng-container>
+
+      <!-- Acciones -->
+  <ng-container matColumnDef="action">
+    <th appTextSize="20px" class="subtitle" mat-header-cell *matHeaderCellDef="">Acciones</th>
+    <td mat-cell *matCellDef>
+      <button mat-icon-button (click)="editStudent()"> 
+        <mat-icon>edit</mat-icon>
+      </button>
+      <button mat-icon-button (click)="deleteStudent()" color="warn">
+        <mat-icon>delete</mat-icon>
+      </button>
+      <button mat-icon-button (click)="addStudent()" color="accent">
+        <mat-icon>add</mat-icon>
+      </button>
+    </td>
+
+    <tr mat-header-row *matHeaderRowDef="columns"></tr>
+    <tr mat-row *matRowDef="let row; columns: columns"></tr>
+  </ng-container>
+  </table>
+</div>

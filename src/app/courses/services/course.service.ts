@@ -1,10 +1,8 @@
 import { Injectable } from '@angular/core';
-import { BehaviorSubject, map, Observable, of, Subject } from 'rxjs';
-import { Course } from '../models/course';
+import { BehaviorSubject, map, Observable } from 'rxjs';
+import { Course } from '../../models/course';
 
-@Injectable({
-  providedIn: 'root'
-})
+@Injectable()
 export class CourseService {
 
   private courses: Course[] = [
@@ -127,7 +125,6 @@ export class CourseService {
     return this.getCourses().pipe(
       map( (courses: Course[]) => courses.filter((course: Course) => course.id === id))
     )
-
   }
 
   addCourse( course: Course ) {
@@ -136,10 +133,24 @@ export class CourseService {
   }
 
   editCourse(course: Course) {
+    let indice = this.courses.findIndex( (obj: Course) => obj.id === course.id);
 
+    if (indice > -1) {
+      this.courses[indice] = course;
+
+      this.subjectCourses.next(this.courses);
+    }
   }
 
-  deleteCourse(id: number) {}
+  deleteCourse(id: number) {
+    let indice = this.courses.findIndex( (obj: Course) => obj.id === id);
+
+    if (indice > -1) {
+      this.courses.splice(indice, 1);
+
+      this.subjectCourses.next(this.courses);
+    }
+  }
 }
 
 

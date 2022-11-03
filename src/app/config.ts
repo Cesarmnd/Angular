@@ -1,6 +1,6 @@
 import { InjectionToken } from "@angular/core"
-import { CourseService } from "./services/course.service"
-import { StudentService } from "./services/student.service"
+import { CourseService } from "./courses/services/course.service"
+import { StudentService } from "./students/services/student.service"
 
 export interface Settings {
   courses: CourseService,

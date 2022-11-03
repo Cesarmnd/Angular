@@ -1,6 +1,6 @@
 <h1 appTextSize="20px" class="title">Añadir curso</h1>
 
-<form class="form col-md-4"  (ngSubmit)="addCourse()" > <!--[formGroup]="courseForm"-->
+<form class="form col-md-4" [formGroup]="courseForm" (ngSubmit)="addCourse()" > <!--[formGroup]="courseForm"-->
   <mat-form-field class="form-input col-10" appearance="legacy" color="accent">
     <mat-label>Nombre del curso</mat-label>
     <input type="text" formControlName="name" matInput placeholder="Ingrese el nombre del curso.">

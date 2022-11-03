@@ -30,35 +30,14 @@ export class ChartComponent implements OnInit, OnDestroy {
   }
   
   ngOnInit(): void {
-
   }
 
-  ngOnDestroy(): void {
+  ngOnDestroy(): void { 
     this.subscription.unsubscribe()
   } 
 
   addCourse() {
-    let course: Course = {
-      id: 4,
-      name: 'VueJs',
-      teacher: 'Oscar',
-      start: new Date(),
-      end: new Date(),
-      ongoing: false,
-      enrroll: true,
-      img: '',
-      students: [
-        { 
-          name:'rebecca', 
-          lastname: 'sevillano', 
-          email: 'kauxappammoijoi-7872@yopmail.com',
-          age:27, 
-          grade: 16,
-          status: true
-         }
-      ]
-    }
-    this.courseService.addCourse(course)
+    this.router.navigate(['courses/create'])
   }
 
   getValue(event: Event): any {
