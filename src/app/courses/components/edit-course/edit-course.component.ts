@@ -13,7 +13,7 @@ import { CourseService } from '../../services/course.service';
 export class EditCourseComponent implements OnInit {
   titularAlert: string = '';
   courseEditForm!: FormGroup; 
-  id!: number;
+  course!: Course;
 
   constructor(
     private courseService: CourseService,
@@ -25,22 +25,34 @@ export class EditCourseComponent implements OnInit {
 
   ngOnInit(): void {
     this.activatedRoute.paramMap.subscribe( obj => { 
-      this.id = parseInt(obj.get('id') || '0');
+      console.log(obj.get('id'))
+      this.course = {
+        id: parseInt( obj.get('id') || '0' ),
+        name: obj.get('name') || '',
+        teacher: obj.get('teacher') || '',
+        img: obj.get('img') || '',
+        start: new Date(obj.get('start') || ''),
+        end: new Date(obj.get('end') || ''),
+        ongoing: obj.get('ongoing') === 'true',
+        enrroll: obj.get('enroll') === 'true',
+        students: []
+      }
+
       this.courseEditForm = new FormGroup({
-        name: new FormControl( obj.get('name'), [Validators.required]),
-        teacher: new FormControl(obj.get('teacher'), [Validators.required]),
-        image: new FormControl(obj.get('img'), [Validators.required, Validators.pattern('(https?://)?([\\da-z.-]+)\\.([a-z.]{2,6})[/\\w .-]*/?')]),
-        start: new FormControl(obj.get('start'), [Validators.required ]),
-        end: new FormControl(obj.get('end'), [Validators.required ]),
-        ongoing: new FormControl(obj.get('ongoing')),
-        enrroll: new FormControl(obj.get('enroll')),
+        name: new FormControl( this.course.name),
+        teacher: new FormControl(this.course.teacher),
+        image: new FormControl(this.course.img),
+        start: new FormControl(this.course.start),
+        end: new FormControl(this.course.end),
+        ongoing: new FormControl(this.course.ongoing),
+        enrroll: new FormControl(this.course.enrroll),
       }) 
     })
   }
 
   editCourse() {
     let obj: Course = {
-      id: this.id,
+      id: this.course.id,
       name: this.courseEditForm.value.name,
       teacher: this.courseEditForm.value.teacher,
       img: this.courseEditForm.value.image,
@@ -63,5 +75,4 @@ export class EditCourseComponent implements OnInit {
       background: '#424242'
     })
   }
-
 }

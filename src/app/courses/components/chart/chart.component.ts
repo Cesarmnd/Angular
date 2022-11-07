@@ -73,4 +73,5 @@ export class ChartComponent implements OnInit, OnDestroy {
     this.courseService.deleteCourse(id)
   }
 
+
 }

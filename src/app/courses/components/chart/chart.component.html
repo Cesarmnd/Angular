@@ -28,6 +28,9 @@
         <button mat-flat-button (click)="edit(course)" color="accent">
           Editar
         </button>
+        <button mat-flat-button [routerLink]="'../'+course.id" color="primary">
+          Detalles
+        </button>
         <button mat-flat-button (click)="remove(course.id)" color="warn">
           Remover
         </button>

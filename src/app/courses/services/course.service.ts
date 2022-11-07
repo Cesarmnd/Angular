@@ -127,6 +127,12 @@ export class CourseService {
     )
   }
 
+  getId( id:number ): Observable<Course> {
+    return this.getCourses().pipe(
+      map( (courses: Course[]) => courses.filter((course: Course) => course.id === id)[0])
+    )
+  }
+
   addCourse( course: Course ) {
     this.courses.push(course);
     this.subjectCourses.next( this.courses );

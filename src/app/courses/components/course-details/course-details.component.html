@@ -1,0 +1,10 @@
+<p>course-details works!</p>
+
+<div *ngIf="course$ | async">
+  <pre>
+    {{ course$ | async | json }}
+  </pre>
+</div>
+<div *ngIf="!(course$ | async)">
+  <p>No se encontró ningún curso :(</p>
+</div>
