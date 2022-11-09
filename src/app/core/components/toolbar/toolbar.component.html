@@ -1,1 +1,11 @@
-<p>toolbar works!</p>
+<mat-toolbar color="primary">
+  <h1>Título de referencia</h1>
+  <p> {{sesion$ | async | json}} </p>
+  <a mat-button routerLink="">Inicio</a>
+  <a mat-button routerLink="courses/list">Cursos</a>
+  <a mat-button routerLink="courses/create">Registrar Curso</a>
+  <a mat-button routerLink="students/list">Alumnos</a>
+  <a mat-button routerLink="students/create">Registrar Alumnos</a>
+  <a mat-button routerLink="authentication/login">Login</a>
+  <a mat-button routerLink="authentication/signup">SignUp</a>
+</mat-toolbar>

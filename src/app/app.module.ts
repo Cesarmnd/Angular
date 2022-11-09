@@ -9,11 +9,8 @@ import { CourseFilterPipe } from './pipes/course-filter.pipe';
 import { TextSizeDirective } from './directives/text-size.directive';
 import { config, token } from './config';
 import { AppRoutingModule } from './app-routing.module';
-import { AuthenticationModule } from './authentication/authentication.module';
-import { CoursesModule } from './courses/courses.module';
 import { CoreModule } from './core/core.module';
-import { MaterialModule } from './material.module';
-import { StudentsModule } from './students/students.module';
+import { SharedModule } from './shared/shared.module';
 
 
 @NgModule({
@@ -26,13 +23,10 @@ import { StudentsModule } from './students/students.module';
   ],
   imports: [
     CoreModule,
-    MaterialModule,
+    SharedModule,
     BrowserModule,
     BrowserAnimationsModule,
-    AppRoutingModule,
-    AuthenticationModule,
-    CoursesModule,
-    StudentsModule
+    AppRoutingModule
   ],
   providers: [ 
     {provide: token, useValue: config}

@@ -5,7 +5,8 @@ import { HomeComponent } from './components/home/home.component';
 import { NotFoundComponent } from './components/not-found/not-found.component';
 import { NavbarComponent } from './components/navbar/navbar.component';
 import { SesionService } from './services/sesion.service';
-import { MaterialModule } from '../material.module';
+import { SharedModule } from '../shared/shared.module';
+import { RouterModule } from '@angular/router';
 
 
 
@@ -18,7 +19,8 @@ import { MaterialModule } from '../material.module';
   ],
   imports: [
     CommonModule,
-    MaterialModule
+    SharedModule,
+    RouterModule
   ],
   exports: [
     ToolbarComponent

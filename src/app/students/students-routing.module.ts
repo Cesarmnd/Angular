@@ -4,7 +4,7 @@ import { ListComponent } from './components/list/list.component';
 import { UserRegistrationComponent } from './components/user-registration/user-registration.component';
 
 const routes: Routes = [
-  { path: 'students', children: [
+  { path: '', children: [
     { path: 'list', component: ListComponent },
     { path: 'create', component: UserRegistrationComponent }
   ]},
