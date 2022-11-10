@@ -1,5 +1,6 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
+import { AdminGuard } from '../core/guards/admin.guard';
 import { ChartComponent } from './components/chart/chart.component';
 import { CourseDetailsComponent } from './components/course-details/course-details.component';
 import { CourseRegistrationComponent } from './components/course-registration/course-registration.component';
@@ -8,8 +9,8 @@ import { EditCourseComponent } from './components/edit-course/edit-course.compon
 const routes: Routes = [
   { path: '', children: [
     { path: 'list', component: ChartComponent },
-    { path: 'create', component: CourseRegistrationComponent },
-    { path: 'edit', component: EditCourseComponent },
+    { path: 'create', component: CourseRegistrationComponent, canActivate: [AdminGuard]},
+    { path: 'edit', component: EditCourseComponent, canActivate: [AdminGuard] },
     { path: ':id', component: CourseDetailsComponent }
   ]}
 ];

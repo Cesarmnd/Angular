@@ -3,12 +3,12 @@ import { CourseService } from "./courses/services/course.service"
 import { StudentService } from "./students/services/student.service"
 
 export interface Settings {
-  courses: CourseService,
+  // courses: CourseService,
   students: StudentService
 }
 
 export const config: Settings = {
-  courses: new CourseService(),
+  // courses: new CourseService(),
   students: new StudentService()
 }
 

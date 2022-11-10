@@ -1,6 +1,7 @@
 import { NgModule } from "@angular/core";
 import { RouterModule, Routes } from "@angular/router";
 import { HomeComponent } from "./core/components/home/home.component";
+import { NotFoundComponent } from "./core/components/not-found/not-found.component";
 import { AuthenticationGuard } from "./core/guards/authentication.guard";
 
 const routes: Routes = [
@@ -24,7 +25,7 @@ const routes: Routes = [
   },
 
   { path: '', redirectTo: 'home', pathMatch: 'full' },  
-  // { path: '**', component: NotFoundComponent }
+  { path: '**', component: NotFoundComponent }
 ]
 
 
