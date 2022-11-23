@@ -20,6 +20,12 @@ const routes: Routes = [
   },
 
   {
+    path: 'users',
+    loadChildren: () => import('./users/users.module').then( obj => obj.UsersModule),
+    canLoad: [AuthenticationGuard]
+  },
+
+  {
     path: 'authentication',
     loadChildren: () => import('./authentication/authentication.module').then( obj => obj.AuthenticationModule )
   },

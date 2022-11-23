@@ -8,6 +8,7 @@
       <a mat-button routerLink="courses/create" *ngIf="sesion.activeUser?.admin">Registrar Curso</a>
       <a mat-button routerLink="students/list">Alumnos</a>
       <a mat-button routerLink="students/create" *ngIf="sesion.activeUser?.admin">Registrar Alumnos</a>
+      <a mat-button routerLink="users" *ngIf="sesion.activeUser?.canLoad">Usuarios</a>
       <a mat-button routerLink="authentication/login">Login</a>
       <a mat-button routerLink="authentication/signup">SignUp</a>
     </mat-toolbar>

@@ -24,11 +24,47 @@ export class AuthenticationGuard implements CanActivate {
         if(sesion.activeSesion) {
           return true
         } else {
+          alert('No tiene permisos para ver esta pagina')
           this.router.navigate(['authentication/login'])
           return false
         }
       })
     );
   }
-  
+
+  canActivateChild(
+    childRoute: ActivatedRouteSnapshot,
+    state:RouterStateSnapshot): Observable<boolean | UrlTree> | boolean | UrlTree  {
+    return this.sesion.getSesion().pipe(
+      map((sesion: Sesion) => {
+        if(sesion.activeUser?.canActivateChild) {
+          return true
+        } else {
+          alert('No tiene permisos para ver esta pagina')
+          this.router.navigate(['authentication/login'])
+          return false
+        }
+      })
+    )}
+    ;
+
+    canLoad(
+      childRoute: ActivatedRouteSnapshot,
+      state:RouterStateSnapshot): Observable<boolean | UrlTree> | boolean | UrlTree {
+
+        return this.sesion.getSesion().pipe(
+          map((sesion: Sesion) => {
+            if(sesion.activeUser?.canLoad) {
+              return true
+            } else {
+              alert('No tiene permisos para ver esta pagina')
+              this.router.navigate(['authentication/login'])
+              return false
+            }
+          })
+        );
+
+    }
 }
+
+
